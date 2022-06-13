@@ -32,6 +32,16 @@
 #echo -ne "Checking if the $REQUIRED_PKG is present on the systems"
 if ansible --version >/dev/null 2>&1; then
     echo Found
+    sleep 3
+    echo "Checking the version..."
+    sleep 3
+     ansible --version | grep -i "ansible 2."
 else
     echo Not found
+    sleep 3
+    echo "Installing the Ansible package..."
+    sleep 3
+    echo "Updating the system..."
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install software-properties-common -y && sudo add-apt-repository --yes --update ppa:ansible/ansible && sudo apt install ansible -y
 fi
