@@ -36,7 +36,7 @@ if ansible --version >/dev/null 2>&1; then
     echo "Checking the version..."
     sleep 3
      ansible --version | grep -i "ansible 2."
-else
+    else
     echo Not found
     sleep 3
     echo "Installing the Ansible package..."
