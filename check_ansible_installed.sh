@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # ------------------------------------------------------------------------ #
 # Script Name:   firewalld.sh 
 # Description:   Firewalld service management
@@ -25,13 +25,13 @@
 # ------------------------------------------------------------------------ #
 
 #VARIABLES --------------------------------------------------------------- #
-PKG=`dpkg -s ansible`
+#REQUIRED_PKG="ansible"
+#CHECK_PKG=`dpkg -s ansible`
+
 #CODE -------------------------------------------------------------------- #
-read -p "Package Name: "
-which $pkg > /dev/null 2>&1
-if  [ $? == 0 ]
-    then
-    echo "$pkg is already installed. "
-    else
-    read -p "$pkg is not installed. Answer yes/no if want installation_ " request
-    
+#echo -ne "Checking if the $REQUIRED_PKG is present on the systems"
+if ansible --version >/dev/null 2>&1; then
+    echo Found
+else
+    echo Not found
+fi
